@@ -14,7 +14,10 @@ public class ActivityB extends Activity {
     }
 
     public void onButtonClick(View view) {
-        Intent intent = new Intent(MyApplication.getInstance().getApplicationContext(), ActivityC.class);
-        MyApplication.getInstance().getCurrentActivity().startActivity(intent);
+//        Intent intent = new Intent(MyApplication.getInstance().getApplicationContext(), ActivityC.class);
+//        MyApplication.getInstance().getCurrentActivity().startActivity(intent);
+
+        Intent intent = new Intent(ActivityB.this, ActivityC.class);
+        startActivity(intent);
     }
 }
