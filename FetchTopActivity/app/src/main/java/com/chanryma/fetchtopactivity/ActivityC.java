@@ -21,6 +21,11 @@ public class ActivityC extends Activity {
 
     public void onButtonClick(View view) {
         List<Activity> activities = getActivities();
+        String result = concatenateActivityNames(activities);
+        ((TextView) findViewById(R.id.tv_result)).setText(result);
+    }
+
+    private String concatenateActivityNames(List<Activity> activities) {
         StringBuilder strBuilder = new StringBuilder();
         if (activities != null) {
             for (Activity activity : activities) {
@@ -32,10 +37,15 @@ public class ActivityC extends Activity {
             }
         }
 
-        ((TextView) findViewById(R.id.tv_result)).setText(strBuilder.toString());
+        return strBuilder.toString();
     }
 
-    public static List<Activity> getActivities() {
+    /**
+     * The order of activities in the returned list is not constant.
+     * As far as this demo project is concerned, I expect the result to be [ActivityA,ActivityB,ActivityC], but it varies.
+     * @return activities
+     */
+    private List<Activity> getActivities() {
         List<Activity> activities = new ArrayList<Activity>();
         try {
             Class activityThreadClass = Class.forName("android.app.ActivityThread");
@@ -56,7 +66,7 @@ public class ActivityC extends Activity {
                 activities.add(activity);
             }
         } catch (Exception e) {
-            Log.e("ActivityC", "", e);
+            Log.e("ActivityC", "Error", e);
         }
 
         return activities;
