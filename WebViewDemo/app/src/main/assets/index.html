@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>OpenLayers example</title>
+    <style>
+		html, body {
+			height: 100%;
+			width: 100%;
+			margin: 50;
+		}
+
+    </style>
+</head>
+
+<body>
+    <p>This is a local file.</p>
+    <script type="text/javascript">
+             callbackHandler.showToast("Web view is loaded.");
+
+             function showNativeMessage(name) {
+                 var message = callbackHandler.getData();
+                 callbackHandler.showToast('Hi ' + name + '.\n' + message);
+             }
+    </script>
+</body>
+</html>
