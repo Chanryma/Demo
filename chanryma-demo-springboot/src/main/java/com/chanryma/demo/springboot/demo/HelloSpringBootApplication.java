@@ -1,5 +1,6 @@
 package com.chanryma.demo.springboot.demo;
 
+import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +26,9 @@ public class HelloSpringBootApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(HelloSpringBootApplication.class, args);
+//        SpringApplication.run(HelloSpringBootApplication.class, args);
+        SpringApplication application = new SpringApplication(HelloSpringBootApplication.class);
+        application.setBannerMode(Mode.OFF);
+        application.run(args);
     }
 }
